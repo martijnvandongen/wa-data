@@ -752,7 +752,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_securely_operate_automate_security_controls.html",
     "pillar": "Security",
     "topic": "Operating your workloads securely",
-    "level": "Â Medium",
+    "level": "Medium",
     "summary": "**Compliance Control for Standard Security Controls in AWS**Implement modern DevOps practices to define, test, and deploy standardized security controls across AWS environments using Infrastructure as Code (IaC) templates. Store templates in version control, automate testing via CI/CD pipelines, and deploy changes automatically. Avoid manual changes and separation of duties issues. Benefits include improved standardization, reduced risks, and early control integration. Key anti-patterns to avoid include manual changes, lack of central control, and insufficient automation. Related best practices include version control, build management, and automated deployment. Tools: AWS CloudFormation Guard, AWS CodePipeline, AWS CodeBuild, AWS CodeDeploy, Service Catalog."
   },
   {
@@ -878,7 +878,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_permissions_lifecycle.html",
     "pillar": "Security",
     "topic": "Permissions management",
-    "level": "Â Medium",
+    "level": "Medium",
     "summary": "Compliance Control (max 500 chars):Monitor and adjust permissions for users, roles, and groups throughout their lifecycle to minimize unnecessary privileges. Regularly review and update access as roles change, and remove access for inactive or terminated users. Use automation via AWS IAM Identity Center and SCIM protocol to centrally manage and propagate changes, ensuring adherence to the principle of least privilege and reducing risk of unauthorized access."
   },
   {
@@ -923,7 +923,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_detect_investigate_events_logs.html",
     "pillar": "Security",
     "topic": "Detection",
-    "level": "Â Medium",
+    "level": "Medium",
     "summary": "**Compliance Control for Security Logs and Findings**Objective: Establish a standardized approach for collecting, analyzing, and visualizing security logs and findings to enhance security operations.**Control Measures:**1. **Centralized Data Collection:** Aggregate security logs and findings in standardized locations for correlation and analysis.   2. **Access Controls:** Implement strict access controls to restrict visibility and modification of collected data.3. **Data Classification:** Govern security logs and findings as part of the organization’s data classification policy.4. **Data Sovereignty:** Address data localization and sovereignty requirements when configuring data collections.5. **SIEM Integration:** Use Security Information and Event Management (SIEM) systems to query and analyze log data for timely responses.**Risk Level:** Medium if not established.**AWS Implementation:**- Create Log Archive and Security Tooling accounts using AWS Organizations.- Utilize Amazon Security Lake for automated data ingestion from AWS and third-party sources.- Deploy analytics tools like Amazon Athena and visualization tools like Amazon QuickSight in the Security Tooling account.**Related Best Practices:** SEC01-BP01, SEC07-BP04, SEC08-BP04, OPS08-BP02.**Related Documents & Tools:** AWS whitepapers, Amazon Security Lake, Amazon Athena, Amazon QuickSight."
   },
   {
@@ -932,7 +932,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_detect_investigate_events_security_alerts.html",
     "pillar": "Security",
     "topic": "Detection",
-    "level": "LowÂ",
+    "level": "Low",
     "summary": "**Compliance Control for Security Alert Correlation and Enrichment****Objective:** Implement automated correlation and enrichment of security alerts to achieve accurate incident identification and response.**Key Actions:**1. **Identify Alert Sources:** Recognize different alert sources like Amazon GuardDuty, AWS Security Hub, and third-party feeds.2. **Capture Alerts:** Use AWS services (Security Hub, EventBridge, CloudWatch) to collect alerts.3. **Data Correlation:** Integrate alerts with AWS CloudTrail, VPC Flow Logs, and other logs via Amazon Security Lake.4. **Automate Enrichment:** Employ Amazon Detective, SIEM tools, or AWS Lambda/Athena for automated correlation and enrichment.5. **Contextual Analysis:** Assess true criticality through context-driven analysis, not just initial alert priority.**Anti-patterns to Avoid:**- Manual correlation without automation.- Different teams investigating alerts independently.- Sole reliance on detection systems for criticality.**Benefits:** Reduces cognitive load, speeds up incident response, and improves event severity assessment.**Risk Level:** Low if not established.**Related Practices:** SEC10-BP03, OPS08-BP04, REL06-BP03.**Tools:** Amazon Detective, EventBridge, Lambda, Athena.**Documents:** AWS Security Incident Response Guide.**Examples:** Enrich AWS Security Hub findings.**Characters Used:** 496"
   },
   {
@@ -977,7 +977,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_network_auto_protect.html",
     "pillar": "Security",
     "topic": "Protecting networks",
-    "level": "MediumÂ",
+    "level": "Medium",
     "summary": "**Compliance Control Summary (max 500 chars):**Automate network protection deployments using DevOps practices like IaC and CI/CD pipelines to track changes, reduce deployment time, and detect configuration drift. Define protections via templates, commit to version control, and automate testing/deployment in staging and production. Avoid centralization/delegation pitfalls by balancing control with consistent testing standards. Benefits include change tracking and standardization. Risks of non-compliance include outdated protections and manual errors."
   },
   {
@@ -995,7 +995,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_compute_hardened_images.html",
     "pillar": "Security",
     "topic": "Protecting compute",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Compliance Control (max 500 chars)**Ensure runtime environments are provisioned from hardened images. Acquire runtime dependencies from trusted registries, verifying signatures. Maintain private registries for trusted images. Regularly scan and update images and dependencies to mitigate vulnerabilities. Avoid anti-patterns like unverified images and unpatched systems. Benefits include reduced attack vectors and impact. High risk exists without compliance. Use latest OS, container images, and libraries; apply patches, minimize systems, and follow CIS/STIG guidance. Automate with AWS EC2 Image Builder. Manage code packages via private repositories. For Lambda, use layers for dependency management. Related: OPS05-BP05 patch management."
   },
   {
@@ -1013,7 +1013,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_protect_compute_validate_software_integrity.html",
     "pillar": "Security",
     "topic": "Protecting compute",
-    "level": "Â Medium",
+    "level": "Medium",
     "summary": "**Compliance Control for Software Integrity Verification**Use cryptographic verification to validate the integrity of software artifacts, including images, used in your workload. Cryptographically sign your software to safeguard against unauthorized changes. Ensure all artifacts are obtained from trusted sources, vendor website certificates are validated, and downloaded artifacts are cryptographically verified by their signatures. Your own software should be cryptographically signed and verified by your computing environments.**Common Anti-Patterns:**- Ignoring certificate expiration notices.- Downloading artifacts without confirming valid certificates.- Relying solely on hashes without verifying source.- Not signing your own software.**Benefits:** Prevents malware, safeguards against unauthorized changes, secures software supply chain.**Risk Level:** Medium**Tools:** AWS Signer, AWS Lambda, AWS Certificate Manager, AWS Key Management Service, AWS CodeArtifact.**Action Steps:** Incorporate digital signature verification in CI/CD pipelines.**Related Docs:** Cryptographic Signing for Containers, Best Practices for AWS Signer, Container Image Signing with AWS Signer."
   },
   {
@@ -1058,7 +1058,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_data_classification_lifecycle_management.html",
     "pillar": "Security",
     "topic": "Data classification",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Compliance Control for Data Lifecycle Management**Ensure data is classified and handled according to its sensitivity at the point of ingestion. Implement automated lifecycle policies for retention, destruction, and provenance tracking. Avoid one-size-fits-all approaches, separate usable data from backups, and manage data durability alongside backups. Benefits include compliance, security, cost optimization, and efficient data access. Risks of non-compliance are high. Use AWS tools like S3 lifecycle policies, DynamoDB TTL, AWS Backup, and data provenance tracking for effective management."
   },
   {
@@ -1130,7 +1130,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/sec_incident_response_identify_personnel.html",
     "pillar": "Security",
     "topic": "Preparation",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Compliance Control for Incident Response:**Maintain an updated list of key internal and external personnel, including contact info, roles, and responsibilities. Regularly review and update this list to reflect personnel changes and include third-party service providers. Ensure onboarding includes event simulations and define an escalation path. This minimizes response time and reduces risk, ensuring the right people are available during security events.**Common Anti-Patterns:**- Lack of an updated personnel list.- Assumptions about understanding roles.- Absence of infrastructure documentation.- Inadequate onboarding processes.- No escalation path for unavailable personnel.**Benefits:**Reduces event response time and minimizes wasted effort by ensuring the right individuals are prepared and available.**Risk Level:**High if not established.**Key Personnel Identification:**- Incident Manager: Overall authority.- Incident Responders: Investigation and remediation.- Communications Lead: Internal and external communications.- Onboarding: Train new employees with simulations.- SMEs: Insights for mission-critical workloads.**Example Tools:**Use AWS Systems Manager Incident Manager for contact management and response planning.**External Partners:**Engage key personnel from ISVs, partners, and subcontractors. Maintain updated contacts for public agencies and regulators.**Incident Management Setup:**- Deploy Incident Manager in Security Tooling account.- Define multiple contact channels.- Define a response plan with escalation paths.**Related Practices and Tools:**- OPS02-BP03: Operations activity owners.- AWS Security Incident Response Guide.- AWS Systems Manager Incident Manager."
   },
   {
@@ -1607,7 +1607,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_tracking_change_management_functional_testing.html",
     "pillar": "Reliability",
     "topic": "Implement change",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Compliance Control for Automated Testing in Deployments**To ensure code quality and reduce deployment risks, implement automated unit and integration tests within your CI/CD pipeline. Key practices include:- **Unit Tests**: Write tests for each function before coding (TDD). Ensure they pass before commits.- **Integration Tests**: Automate these tests in staging environments mirroring production to validate system-wide functionality.- **CI/CD Integration**: Integrate tests into AWS CodePipeline, halting deployment if criteria are unmet.- **Environment Consistency**: Run tests in environments that closely replicate production to catch compatibility issues early.- **Monitoring**: Continuously monitor test results, adjusting the test suite and deployment process as needed.**Risk**: High risk of bugs and unexpected behavior if tests are ignored or inadequately automated.**Related Best Practices**: Load testing (REL07-BP04), resiliency testing (REL08-BP03), chaos engineering (REL12-BP04).**Tools**: AWS CodePipeline, AWS CodeBuild, AWS Device Farm for device testing."
   },
   {
@@ -2021,7 +2021,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_understand_how_networking_impacts_performance.html",
     "pillar": "Performance Efficiency",
     "topic": "Networking and content delivery",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Compliance Control for Network-Related Decisions****Anti-patterns:**- Traffic routed through central firewalls instead of cloud-native tools.- Misunderstanding AWS Direct Connect usage.- Ignoring workload characteristics and encryption overhead.- Using on-premises networking in the cloud.**Benefits:**- Identifies bottlenecks, improves user experience, increases reliability, and reduces maintenance.**Risk:**- High risk if best practices aren't established.**Control Measures:**- Document networking requirements, including latency, protocols, and traffic patterns.- Review and choose suitable AWS networking services like VPCs, Direct Connect, ELB, Route 53.- Benchmark network performance and conduct load tests.- Utilize AWS networking metrics and tools for monitoring and optimization."
   },
   {
@@ -2030,7 +2030,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_evaluate_networking_features.html",
     "pillar": "Performance Efficiency",
     "topic": "Networking and content delivery",
-    "level": "Â High",
+    "level": "High",
     "summary": "**Cloud Networking Compliance Control (500 chars max)**Evaluate and optimize cloud networking features to enhance performance and security. Avoid anti-patterns like regional bias and subnet segmentation. Use AWS services like Global Accelerator, CloudFront, and Route 53. Measure impact via testing, metrics (latency, bandwidth), and analysis. Document performance benchmarks and leverage tools like AWS Config and CloudWatch for monitoring. High risk if not established due to potential performance and security issues."
   },
   {
@@ -2066,7 +2066,7 @@
     "link": "https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/perf_networking_choose_workload_location_network_requirements.html",
     "pillar": "Performance Efficiency",
     "topic": "Networking and content delivery",
-    "level": "Â Medium",
+    "level": "Medium",
     "summary": "**Compliance Control for Reducing Network Latency**To optimize user experience, avoid placing all resources in one geographic location and choose regions not just by proximity but end-user location. Use AWS Regions, Local Zones, Outposts, and Wavelength for lower latency. Employ edge services like CloudFront and Global Accelerator for caching and optimal routing. Placement groups and ENA can further reduce latency. Monitor network access patterns with VPC Flow Logs and CloudWatch. Select regions based on data location, user location, and constraints like cost and compliance. Use Local Zones, Outposts, and Wavelength for specific needs. Cache frequently used assets locally. For compute-heavy operations, use Lambda@edge and CloudFront Functions. For ultra-low-latency applications, AWS Global Accelerator is ideal. **Risk Level:** Medium**Related Practices:** COST07-BP02, COST08-BP03, REL10-BP01, REL10-BP02, SUS01-BP01, SUS02-BP04, SUS04-BP07**Resources:** AWS Global Infrastructure, Local Zones, Outposts, Wavelength, CloudFront, Global Accelerator, Route 53**Videos:** Local Zones, Outposts, Wavelength, CloudFront, Global Accelerator**Examples:** Global Accelerator Custom Routing Workshop, Edge Functions"
   },
   {
